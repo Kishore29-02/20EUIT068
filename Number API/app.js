@@ -8,8 +8,9 @@ const app = express();
 const number = async des => {
     try {
         const response = await fetch(des);
+        // console.log(response.ok,"Response");
         if(!response.ok){
-            console.log("Invalid Url:",des);
+            // console.log("Invalid Url:",des);
             let out = {
                 numbers:[-1]
             };
@@ -29,7 +30,11 @@ const number = async des => {
         console.log(des,startTime-endTime,"ms");
         return data;
     } catch (err) {
-        console.log(err);
+        console.log("Error--",err.message);
+        let out = {
+            numbers:[-1]
+        };
+        return out;
     }
 };
   
